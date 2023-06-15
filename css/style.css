@@ -6,3 +6,16 @@ GENERAL SETTING
  margin: 0;
  box-sizing: border-box;
 }
+
+body{
+ background-color: darkslateblue;
+}
+
+.content_list{
+ width: 60%;
+ height: 80vh;;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: red;
+ color: white;
+}
