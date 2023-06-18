@@ -2,20 +2,30 @@
 GENERAL SETTING
 */
 *{
- padding: 0;
- margin: 0;
- box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body{
- background-color: rgb(201, 193, 255);
+    background-color: rgb(201, 193, 255);
 }
 
 .content_list{
- width: 60%;
- height: 80vh;;
- margin: 0 auto;
- padding: 20px;
- background-color: darkslateblue;
- color: white;
+    width: 60%;
+    height: 80vh;;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: darkslateblue;
+    color: white;
+}
+
+li{
+    border-bottom: 1px solid white;
+    margin-top: 10px;
+}
+
+.task_done{
+    text-decoration: line-through;
+    color: green;
 }

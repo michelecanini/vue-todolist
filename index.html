@@ -23,10 +23,10 @@
 
             <!--start main-->
             <main>
-                <div class="container">
+                <div class="container-ls">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h1>Vue Toboolis</h1>
+                            <h1>{{ title }}</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -36,95 +36,23 @@
                                 <hr>
                                 <ul class="list-unstyled">
 
-                                    <li>
+                                    <li v-for="(item, index) in items">
                                         <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 1 
+                                            <div v-bind:class="item.done ? 'task_done' : ''">
+                                                {{ item.text }}
                                             </div>
                                             <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                                <button class="me-2 btn btn-sm" v-bind:class="item.done ? 'btn-success' : 'btn-dark'" @click="changeStatus(index)"><i class="fas" v-bind:class="item.done ? 'fa-check' : 'fa-x'"></i></button>
+                                                <button class="btn btn-sm btn-danger" @click="deleteTask(index)"><i class="fas fa-trash"></i></button>
                                             </div> 
                                         </div>
                                     </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 2 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 3 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 4 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 5 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 6 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 7 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <div>
-                                                Task 8 
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                            </div> 
-                                        </div>
-                                    </li>
-
+                                    
                                 </ul>
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-primary" type="button" id="button-addon1" @click="addTask()">+ Add</button>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="new_task" @keyup.enter="addTask()">
+                                  </div>
                             </div>
                         </div>
                     </div>
