@@ -7,6 +7,7 @@ createApp({
         data(){
             return{
                 new_task: '',
+                error_message: '',
                 title: 'Vue Todolist',
                 items: [
                     {
@@ -31,7 +32,6 @@ createApp({
         methods:{
 
             changeStatus(index){
-                //this.items[index].done = !this.items[index].done;
                 if ( this.items[index].done ) {
                     this.items[index].done = false;
                 }
@@ -45,12 +45,21 @@ createApp({
             },
 
             addTask(){
+                if (this.new_task.trim() === '') {
+                    this.error_message = 'Il campo non può essere vuoto';
+                    return;
+                }
+                if (this.new_task.length > 35) {
+                    this.error_message = 'Il task non può superare i 35 caratteri';
+                    return;
+                }
                 let obj = {
                     text: this.new_task,
                     done: false
                 }
                 this.items.push(obj);
                 this.new_task = '';
+                this.error_message = '';
             },
 
             editTask(index){     

@@ -40,6 +40,7 @@
                                         <button class="btn btn-outline-primary" type="button" id="button-addon1" @click="addTask()">+ Add</button>
                                         <input type="text" class="form-control" placeholder="inserisci un nuovo task" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="new_task" @keyup.enter="addTask()">
                                   </div>
+                                  <div id="error-message" v-if="error_message" class="error_message">{{ error_message }}</div>
                                 <ul class="list-unstyled">
                                     <li v-for="(item, index) in items">
                                         <div class="d-flex justify-content-between mb-2">     
