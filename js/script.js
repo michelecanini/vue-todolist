@@ -10,23 +10,19 @@ createApp({
                 title: 'Vue Toboolis',
                 items: [
                     {
-                        text: 'Fare la spesa',
-                        done: false
+                        text: 'Aggiungi un task',
+                        done: false,
+                        edit_disabled: false
                     },
-
                     {
                         text: 'Pulire la camera',
-                        done: true
+                        done: true,
+                        edit_disabled: false
                     },
-
                     {
                         text: 'Fare la spesa',
-                        done: false
-                    },
-
-                    {
-                        text: 'Pulire la camera',
-                        done: true
+                        done: false,
+                        edit_disabled: false
                     },
                 ]
             }     
@@ -54,6 +50,17 @@ createApp({
                     done: false
                 }
                 this.items.push(obj);
+                this.new_task = '';
+            },
+
+            editTask(index){     
+                if ( this.items[index].edit_disabled ) {
+                    this.items[index].edit_disabled = false;
+                }
+                else {
+                    this.items[index].edit_disabled = true;
+                }
+                console.log(this.items[index].edit_disabled)
             }
         }
 

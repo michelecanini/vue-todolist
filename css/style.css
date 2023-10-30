@@ -12,12 +12,12 @@ body{
 }
 
 .content_list{
-    width: 60%;
-    height: 80vh;;
-    margin: 0 auto;
+    height: 80vh;
     padding: 20px;
     background-color: darkslateblue;
     color: white;
+    overflow-y: auto;
+    border-radius: 20px;
 }
 
 li{

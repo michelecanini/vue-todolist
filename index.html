@@ -23,37 +23,44 @@
 
             <!--start main-->
             <main>
-                <div class="container-ls">
+                <div class="container">
                     <div class="row">
-                        <div class="col-12 text-center">
+                        <div class="col-12 text-center mt-4 mb-4">
                             <h1>{{ title }}</h1>
                         </div>
                     </div>
+                </div>   
+                <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="content_list">
                                 <h2>my to do list</h2>
                                 <hr>
+                                    <div class="input-group mb-3">
+                                        <button class="btn btn-outline-primary" type="button" id="button-addon1" @click="addTask()">+ Add</button>
+                                        <input type="text" class="form-control" placeholder="inserisci un nuovo task" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="new_task" @keyup.enter="addTask()">
+                                  </div>
                                 <ul class="list-unstyled">
-
                                     <li v-for="(item, index) in items">
-                                        <div class="d-flex justify-content-between mb-2">
+                                        <div class="d-flex justify-content-between mb-2">     
                                             <div v-bind:class="item.done ? 'task_done' : ''">
+                                                <div v-if="item.edit_disabled">
+                                                    <input type="text" class="form-control" v-model="item.text">
+                                                </div>
+                                                <div v-else >
                                                 {{ item.text }}
+                                                </div>
                                             </div>
                                             <div>
                                                 <button class="me-2 btn btn-sm" v-bind:class="item.done ? 'btn-success' : 'btn-dark'" @click="changeStatus(index)"><i class="fas" v-bind:class="item.done ? 'fa-check' : 'fa-x'"></i></button>
+                                                <button class="me-2 btn btn-sm btn-primary" @click="editTask(index)"><i class="fas fa-edit"></i></button>
                                                 <button class="btn btn-sm btn-danger" @click="deleteTask(index)"><i class="fas fa-trash"></i></button>
                                             </div> 
                                         </div>
-                                    </li>
-                                    
+                                    </li>                   
                                 </ul>
-                                <div class="input-group mb-3">
-                                    <button class="btn btn-outline-primary" type="button" id="button-addon1" @click="addTask()">+ Add</button>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="new_task" @keyup.enter="addTask()">
-                                  </div>
                             </div>
+        
                         </div>
                     </div>
                 </div>
