@@ -49,8 +49,8 @@ createApp({
                     this.error_message = 'Il campo non può essere vuoto';
                     return;
                 }
-                if (this.new_task.length > 35) {
-                    this.error_message = 'Il task non può superare i 35 caratteri';
+                if (this.new_task.length > 22) {
+                    this.error_message = 'Il task non può superare i 22 caratteri';
                     return;
                 }
                 let obj = {
