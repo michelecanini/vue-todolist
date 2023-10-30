@@ -7,7 +7,7 @@ createApp({
         data(){
             return{
                 new_task: '',
-                title: 'Vue Toboolis',
+                title: 'Vue Todolist',
                 items: [
                     {
                         text: 'Aggiungi un task',
