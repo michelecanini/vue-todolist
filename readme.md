@@ -1,2 +1,2 @@
 # VUE-TODOLIST
-<img src="./img/vuetoboolist.png">
+<img src="./img/vuetodolist.png">
