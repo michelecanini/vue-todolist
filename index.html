@@ -46,10 +46,12 @@
                                         <div class="d-flex justify-content-between mb-2">     
                                             <div v-bind:class="item.done ? 'task_done' : ''">
                                                 <div v-if="item.edit_disabled">
-                                                    <input type="text" class="form-control" v-model="item.text">
+                                                    <form @submit.prevent="editTask(index)">
+                                                        <input type="text" class="form-control" v-model="item.text">
+                                                    </form>
                                                 </div>
                                                 <div v-else >
-                                                {{ item.text }}
+                                                    {{ item.text }}
                                                 </div>
                                             </div>
                                             <div>
