@@ -77,6 +77,7 @@ createApp({
                 else {
                     this.items[index].edit_disabled = true;
                 }
+                this.error_message = '';
             }
         }
 
